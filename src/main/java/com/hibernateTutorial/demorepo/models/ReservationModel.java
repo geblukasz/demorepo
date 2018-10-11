@@ -4,10 +4,13 @@ import com.hibernateTutorial.demorepo.models.forms.ReservationForm;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Entity
@@ -30,8 +33,9 @@ public class ReservationModel {
     private String firstname;
     private String lastname;
     private String adres;
-    private Date date;
-
+//    private Date date;
+    //podejscie do czasu JSR 310
+    private LocalDate date;
     public ReservationModel(ReservationForm form) {
         firstname = form.getFirstname();
         lastname = form.getLastname();

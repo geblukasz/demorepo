@@ -10,6 +10,8 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ReservationForm {
 
@@ -27,10 +29,10 @@ public class ReservationForm {
     private String date;
 
 
-    private DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    //    private DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    DateTimeFormatter format = DateTimeFormatter.ofPattern("yyy-MM-dd");
 
-
-    public Date getFormatedDate() {
+    /*public Date getFormatedDate() {
 
         try {
             //YYY-MM-DD
@@ -40,5 +42,10 @@ public class ReservationForm {
             e.printStackTrace();
         }
         return null;
+    }*/
+
+    public LocalDate getFormatedDate() {
+        //YYY-MM-DD
+        return LocalDate.parse(date, format);
     }
 }
