@@ -1,0 +1,77 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+@geblukasz Sign out
+1
+0 0 vallerboy/demorepo
+Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
+demorepo/src/main/resources/templates/index.html
+0c45690  on Oct 18, 2017
+@vallerboy vallerboy hhhh
+
+60 lines (56 sloc)  2.07 KB
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1 th:text="${error}"></h1>
+
+    <br/>
+
+    <div style="width: 100%; height: 100%;">
+        <form th:action="@{/}" th:object="${reservationForm}" method="post">
+            <p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
+            <input  placeholder="Imię" type="text" th:field="*{firstname}">
+            <br/>
+            <p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+            <input  placeholder="Nazwisko" type="text" th:field="*{lastname}">
+            <br/>
+            <p th:if="${#fields.hasErrors('adres')}" th:errors="*{adres}"></p>
+            <input style="width: 100%;" placeholder="Adres" type="text" th:field="*{adres}">
+            <br />
+            <p th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p>
+            <input style="width: 100%;" placeholder="Data" type="text" th:field="*{date}">
+            <br />
+            <input style="width: 100%;" type="submit" value="Zarezerwuj">
+        </form>
+
+        <!--<a  th:if="${reservations.hasNext()}" th:href="@{'/' + ${reservations.getNumber()+1}}">Następna</a>
+        |
+        <a  th:if="${reservations.hasPrevious()}" th:href="@{'/' + ${reservations.getNumber()-1}}">Poprzednia</a>
+
+        <table>
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Adres</th>
+                <th>Data</th>
+            </tr>
+            <th:block th:each="reservation : ${reservations.getContent()}">
+                <tr>
+                    <th th:text="${reservation.name}"></th>
+                    <th th:text="${reservation.lastname}"></th>
+                    <th th:text="${reservation.adres}"></th>
+                    <th th:text="${reservation.date}"></th>
+                </tr>
+            </th:block>
+        </table>-->
+    </div>
+</center>
+</body>
+<style>
+    table, th, tr {
+        border: 1px solid black;
+        border-collapse: collapse;
+        font-size: larger;
+    }
+</style>
+</html>

@@ -1,0 +1,14 @@
+select * from reservations;
+
+CREATE TABLE reservations (
+    ID int NOT NULL AUTO_INCREMENT,
+    firstname varchar(255),
+    lastname varchar(255),
+    date date,
+	adres varchar(255),
+    PRIMARY KEY (ID)
+);
+
+
+------------------------------------------------
+
