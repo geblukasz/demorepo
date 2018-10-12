@@ -6,6 +6,9 @@ import lombok.Setter;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,17 +18,25 @@ import java.time.format.DateTimeFormatter;
 
 public class ReservationForm {
 
+
     @Getter
     @Setter
+    @NotBlank
+    @Size(min = 3, max = 25)
     private String firstname;
     @Getter
     @Setter
+    @NotBlank
+    @Size(min = 3, max = 25)
     private String lastname;
     @Getter
     @Setter
+    @Size(min = 3, max = 25)
     private String adres;
     @Getter
     @Setter
+    //do kazdej adnotacji mozna dodac message
+    @Pattern(regexp = "2[0-9]{3}-[0-9][0-9]-[0-9][0-9]", message = "Write date in yyyy-mm-dd format")
     private String date;
 
 

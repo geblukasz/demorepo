@@ -28,10 +28,10 @@
             <input style="width: 100%;" type="submit" value="Zarezerwuj">
         </form>
 
-        <!--<a  th:if="${reservations.hasNext()}" th:href="@{'/' + ${reservations.getNumber()+1}}">Następna</a>
+      <!--  <a  th:if="${reservations.hasNext()}" th:href="@{'/' + ${reservations.getNumber()+1}}">Następna</a>
         |
         <a  th:if="${reservations.hasPrevious()}" th:href="@{'/' + ${reservations.getNumber()-1}}">Poprzednia</a>
-
+-->
         <table>
             <tr>
                 <th>Imię</th>
@@ -39,15 +39,16 @@
                 <th>Adres</th>
                 <th>Data</th>
             </tr>
-            <th:block th:each="reservation : ${reservations.getContent()}">
+            <!--<th:block th:each="reservation : ${reservations.getContent()}">-->
+            <th:block th:each="reservation : ${reservations}">
                 <tr>
-                    <th th:text="${reservation.name}"></th>
+                    <th th:text="${reservation.firstname}"></th>
                     <th th:text="${reservation.lastname}"></th>
                     <th th:text="${reservation.adres}"></th>
                     <th th:text="${reservation.date}"></th>
                 </tr>
             </th:block>
-        </table>-->
+        </table>
     </div>
 </center>
 </body>
