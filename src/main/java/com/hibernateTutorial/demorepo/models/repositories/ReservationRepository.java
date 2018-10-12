@@ -15,6 +15,7 @@ public interface ReservationRepository extends CrudRepository<ReservationModel, 
     ReservationModel findByLastnameContains(String text);
     List<ReservationModel> findByIdGreaterThan(int howMany);
     List<ReservationModel> findByDateAfter(LocalDate date);
+    long deleteByLastname(String lastname);
 
     boolean existsByDateEquals(LocalDate date);
 

@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
@@ -72,6 +70,8 @@ public class MainController {
                 .collect(Collectors.joining(" , "));
 
 
+
+
         /*
         * Jesli mamy dwoch lukaszow to:
         * StringBuilder builder = new StringBuilder();
@@ -114,5 +114,22 @@ public class MainController {
         * Wypisz wszystkie rezerwacje z przyszlego roku
         * */
 
+    }
+
+    @GetMapping("/delete/{id}")
+    @ResponseBody
+    public String index3(@PathVariable int id) {
+        reservationRepository.deleteById(id);
+
+        return "index";
+    }
+
+    @GetMapping("/deletebylastname/{lastname}")
+    @ResponseBody
+    @Transactional
+    public String index3(@PathVariable String lastname) {
+        reservationRepository.deleteByLastname(lastname);
+
+        return "index";
     }
 }
